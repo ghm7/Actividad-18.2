@@ -19,14 +19,14 @@
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-6">
-              <form class="border p-3 my-3 position-relative" id="get-box">
-                <label for="inputGet1Id" class="fw-bold">Buscar registro</label>
+              <form class="border p-3 my-3 position-relative get-box">
+                <label for="inputGet" class="fw-bold">Buscar registro</label>
                 <input
                   type="number"
-                  id="inputGet1Id"
+                  id="inputGet"
                   class="form-control"
                   placeholder="ID a buscar"
-                  name="inputGet1Id"
+                  name="inputGet"
                 />
                 <button
                   id="btnGet1"
@@ -37,7 +37,7 @@
               </form>
             </div>
             <div class="col-md-6">
-              <form class="border p-3 my-3 position-relative" id="post-box">
+              <form class="border p-3 my-3 position-relative post-box">
                 <label for="inputPost" class="fw-bold"
                   >Ingresar nuevo registro</label
                 >
@@ -53,7 +53,7 @@
                   id="inputPostLastName"
                   class="form-control my-1"
                   placeholder="Apellido"
-                  inputPost
+                  name="inputPost"
                 />
                 <button
                   id="btnPost"
@@ -66,13 +66,14 @@
           </div>
           <div class="row">
             <div class="col-md-6">
-              <div class="border p-3 my-3 position-relative" id="put-box">
-                <h6>Modificar registro</h6>
+              <form class="border p-3 my-3 position-relative put-box">
+                <label for="inputPut" class="fw-bold">Modificar registro</label>
                 <input
                   type="number"
                   id="inputPutId"
                   class="form-control"
                   placeholder="ID del registro a modificar"
+                  name="inputPut"
                 />
                 <button
                   id="btnPut"
@@ -81,7 +82,7 @@
                 >
                   Modificar
                 </button>
-              </div>
+              </form>
             </div>
             <div class="col-md-6">
               <div class="border p-3 my-3 position-relative" id="delete-box">

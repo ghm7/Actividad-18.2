@@ -1,7 +1,14 @@
 const URL = 'https://654c35d877200d6ba8589e5d.mockapi.io';
 const ENDPOINT = '/users';
-const [getForm, postForm] = Array.from(document.querySelectorAll('form'));
+const [getForm, postForm, putForm] = Array.from(
+  document.querySelectorAll('form')
+);
 const resultTable = document.querySelector('#results');
+
+// The right names should be like this
+// getForm.name === inputGet
+// postForm.name === inputPost
+// putForm.name === inputPut
 
 // This function has two roles,
 // 1. Get the whole data when you don't provide the id
@@ -31,6 +38,22 @@ const postData = async (url, endpoint, sendData) => {
     .then((data) => data)
     .catch((error) => error);
 };
+
+// Updates a database's entry
+const updateData = async (url, endpoint, id, sendData) => {
+  return fetch(url + endpoint + `/${id}`, {
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    method: 'PUT',
+    body: JSON.stringify(sendData),
+  })
+    .then((res) => res.json())
+    .catch((error) => error);
+};
+
+// If you want to check if the form name is right,
+// just in case the html code changes
+const isFormNameRight = (form, name) =>
+  form.some((input) => input.name === name);
 
 // Renders the list
 const showList = (array) => {
@@ -85,5 +108,5 @@ document.addEventListener('DOMContentLoaded', (e) => {
     showList(data);
   });
 
-  //
+  // Put functionality
 });

@@ -2,17 +2,17 @@
   min-height: 32rem;
 }
 
-#get-box {
+.get-box {
   height: 15rem;
   background-color: rgb(189, 215, 255);
 }
 
-#post-box {
+.post-box {
   height: 15rem;
   background-color: rgb(217, 255, 208);
 }
 
-#put-box {
+.put-box {
   height: 15rem;
   background-color: rgb(255, 238, 200);
 }
