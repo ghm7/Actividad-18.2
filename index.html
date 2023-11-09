@@ -37,28 +37,31 @@
               </form>
             </div>
             <div class="col-md-6">
-              <div class="border p-3 my-3 position-relative" id="post-box">
-                <h6>Ingresar nuevo registro</h6>
+              <form class="border p-3 my-3 position-relative" id="post-box">
+                <label for="inputPost" class="fw-bold"
+                  >Ingresar nuevo registro</label
+                >
                 <input
                   type="text"
-                  id="inputPostNombre"
+                  id="inputPostName"
                   class="form-control my-1"
                   placeholder="Nombre"
+                  name="inputPost"
                 />
                 <input
                   type="text"
-                  id="inputPostApellido"
+                  id="inputPostLastName"
                   class="form-control my-1"
                   placeholder="Apellido"
+                  inputPost
                 />
                 <button
                   id="btnPost"
                   class="btn btn-success position-absolute bottom-0 mb-3"
-                  disabled
                 >
                   Agregar
                 </button>
-              </div>
+              </form>
             </div>
           </div>
           <div class="row">
