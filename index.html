@@ -78,7 +78,6 @@
                 <button
                   id="btnPut"
                   class="btn btn-warning position-absolute bottom-0 mb-3"
-                  disabled
                 >
                   Modificar
                 </button>
@@ -121,19 +120,17 @@
       </p>
       <p class="mb-1">Generado con fines estrictamente educativos.</p>
     </footer>
-    <div class="alert alert-danger fade" id="alert-error" role="alert">
-      Algo salió mal...
-    </div>
-    <div class="modal fade" tabindex="-1" id="dataModal">
+
+    <!-- <div class="modal fade" tabindex="-1" id="dataModal">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-body">
-            <label for="inputPutNombre">Nombre:</label>
-            <input type="text" id="inputPutNombre" class="form-control my-1" />
-            <label for="inputPutApellido">Apellido:</label>
+          <div class="modal-body placeholder-wave">
+            <label for="inputPutName">Nombre:</label>
+            <input type="text" id="inputPutName" class="form-control my-1" />
+            <label for="inputPutLastName">Apellido:</label>
             <input
               type="text"
-              id="inputPutApellido"
+              id="inputPutLastName"
               class="form-control my-1"
             />
           </div>
@@ -153,6 +150,72 @@
             >
               Guardar
             </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="modal fade" tabindex="-1" id="dataModal">
+      <div id="modal" class="d-none">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body placeholder-wave">
+              <label for="inputPutName">Nombre:</label>
+              <input type="text" id="inputPutName" class="form-control my-1" />
+              <label for="inputPutLastName">Apellido:</label>
+              <input
+                type="text"
+                id="inputPutLastName"
+                class="form-control my-1"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="btnSendChanges"
+                disabled
+              >
+                Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="place-holder">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body placeholder-wave">
+              <p aria-hidden="true">
+                <span class="placeholder col-3 placeholder"></span>
+              </p>
+              <p aria-hidden="true">
+                <span class="placeholder col-12 placeholder-lg"></span>
+              </p>
+              <p aria-hidden="true">
+                <span class="placeholder col-3 placeholder"></span>
+              </p>
+              <p aria-hidden="true">
+                <span class="placeholder col-12 placeholder-lg"></span>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <a
+                class="btn btn-secondary disabled placeholder col-3"
+                aria-disabled="true"
+              ></a>
+              <a
+                class="btn btn-primary disabled placeholder col-3"
+                aria-disabled="true"
+              ></a>
+            </div>
           </div>
         </div>
       </div>
