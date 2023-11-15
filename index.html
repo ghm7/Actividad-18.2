@@ -93,8 +93,13 @@
               </form>
             </div>
             <div class="col-md-6">
-              <div class="border p-3 my-3 position-relative" id="delete-box">
-                <h6>Eliminar registro</h6>
+              <form
+                class="border p-3 my-3 position-relative delete-box"
+                id="delete-form"
+              >
+                <label for="inputDelete" class="fw-bold"
+                  >Eliminar registro</label
+                >
                 <input
                   type="number"
                   id="inputDelete"
@@ -104,11 +109,10 @@
                 <button
                   id="btnDelete"
                   class="btn btn-danger position-absolute bottom-0 mb-3"
-                  disabled
                 >
                   Borrar
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </div>

@@ -17,7 +17,7 @@
   background-color: rgb(255, 238, 200);
 }
 
-#delete-box {
+.delete-box {
   height: 15rem;
   background-color: #999999;
 }

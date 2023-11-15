@@ -1,7 +1,13 @@
 const URL = 'https://654c35d877200d6ba8589e5d.mockapi.io';
 const ENDPOINT = '/users';
-const rightNameForm = ['get-form', 'post-form', 'put-form', 'modal'];
-const [getForm, postForm, putForm, modalForm] = Array.from(
+const rightNameForm = [
+  'get-form',
+  'post-form',
+  'put-form',
+  'modal',
+  'delete-form',
+];
+const [getForm, postForm, putForm, deleteForm, modalForm] = Array.from(
   document.querySelectorAll('form')
 ).filter((form) => rightNameForm.find((name) => name === form.id));
 const resultTable = document.querySelector('#results');
@@ -71,6 +77,25 @@ const updateData = async (url, endpoint, id, sendData) => {
     method: 'PUT',
     body: JSON.stringify(sendData),
   })
+    .then((res) => {
+      if (!res.ok) {
+        showAlert(
+          'Error al editar element, no existe en la base de datos',
+          'danger'
+        );
+
+        throw new Error(`${res.status} ${res.statusText}`);
+      }
+
+      return res.json();
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
+};
+
+const deleteData = async (url, endpoint, id) => {
+  return fetch(url + endpoint + '/' + id, { method: 'DELETE' })
     .then((res) => {
       if (!res.ok) {
         showAlert(
@@ -166,8 +191,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
     const data = await getData(URL, ENDPOINT, value);
     const dataArray = Object.values(data).slice(0, 2);
 
-    console.log(data);
-
     modal.show();
     modal._element
       .querySelectorAll('input')
@@ -189,6 +212,16 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
       modal.hide();
     });
+  });
+
+  // Delete functionality
+  deleteForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const { value } = deleteForm.querySelector('input');
+
+    deleteData(URL, ENDPOINT, value);
   });
 });
 
