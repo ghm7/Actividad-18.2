@@ -19,7 +19,10 @@
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-6">
-              <form class="border p-3 my-3 position-relative get-box">
+              <form
+                class="border p-3 my-3 position-relative get-box"
+                id="get-form"
+              >
                 <label for="inputGet" class="fw-bold">Buscar registro</label>
                 <input
                   type="number"
@@ -37,7 +40,10 @@
               </form>
             </div>
             <div class="col-md-6">
-              <form class="border p-3 my-3 position-relative post-box">
+              <form
+                class="border p-3 my-3 position-relative post-box"
+                id="post-form"
+              >
                 <label for="inputPost" class="fw-bold"
                   >Ingresar nuevo registro</label
                 >
@@ -66,7 +72,10 @@
           </div>
           <div class="row">
             <div class="col-md-6">
-              <form class="border p-3 my-3 position-relative put-box">
+              <form
+                class="border p-3 my-3 position-relative put-box"
+                id="put-form"
+              >
                 <label for="inputPut" class="fw-bold">Modificar registro</label>
                 <input
                   type="number"
@@ -155,7 +164,7 @@
       </div>
     </div> -->
     <div class="modal fade" tabindex="-1" id="dataModal">
-      <div id="modal" class="d-none">
+      <form id="modal" class="d-none">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body placeholder-wave">
@@ -176,18 +185,13 @@
               >
                 Cancelar
               </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                id="btnSendChanges"
-                disabled
-              >
+              <button type="submit" class="btn btn-primary" id="btnSendChanges">
                 Guardar
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </form>
 
       <div id="place-holder">
         <div class="modal-dialog">

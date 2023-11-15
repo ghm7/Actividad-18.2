@@ -1,15 +1,11 @@
 const URL = 'https://654c35d877200d6ba8589e5d.mockapi.io';
 const ENDPOINT = '/users';
-const [getForm, postForm, putForm] = Array.from(
+const rightNameForm = ['get-form', 'post-form', 'put-form', 'modal'];
+const [getForm, postForm, putForm, modalForm] = Array.from(
   document.querySelectorAll('form')
-);
+).filter((form) => rightNameForm.find((name) => name === form.id));
 const resultTable = document.querySelector('#results');
 const modal = new bootstrap.Modal('#dataModal');
-
-// The right names should be like this
-// getForm.name === inputGet
-// postForm.name === inputPost
-// putForm.name === inputPut
 
 // This function has two roles,
 // 1. Get the whole data when you don't provide the id
@@ -159,10 +155,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
     showList(data);
   });
 
-  const delay = (ms) => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  };
-
   // Put functionality
   putForm.addEventListener('submit', async (e) => {
     e.stopPropagation();
@@ -174,6 +166,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
     const data = await getData(URL, ENDPOINT, value);
     const dataArray = Object.values(data).slice(0, 2);
 
+    console.log(data);
+
     modal.show();
     modal._element
       .querySelectorAll('input')
@@ -182,6 +176,19 @@ document.addEventListener('DOMContentLoaded', (e) => {
     document.querySelector('#place-holder').classList.add('d-none');
 
     // Update data
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const [name, lastName] = modalForm.querySelectorAll('input');
+
+      updateData(URL, ENDPOINT, value, {
+        name: name.value,
+        lastName: lastName.value,
+      });
+
+      modal.hide();
+    });
   });
 });
 
